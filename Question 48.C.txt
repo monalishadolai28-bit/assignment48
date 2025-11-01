@@ -1,0 +1,39 @@
+#include <stdio.h>
+
+int main() {
+    int choice, num, temp, digit, smallest;
+
+    // Menu
+    printf("Menu:\n");
+    printf("11) Find the smallest digit of a number\n");
+    printf("Enter your choice: ");
+    scanf("%d", &choice);
+
+    switch(choice) {
+        case 11:
+            printf("Enter an integer: ");
+            scanf("%d", &num);
+
+            if(num < 0) // Convert negative number to positive
+                num = -num;
+
+            temp = num;
+            smallest = 9; // Initialize to max single digit
+
+            while(temp > 0) {
+                digit = temp % 10;
+                if(digit < smallest)
+                    smallest = digit;
+                temp /= 10;
+            }
+
+            printf("Smallest digit is %d\n", smallest);
+            break;
+
+        default:
+            printf("Invalid choice!\n");
+    }
+
+    return 0;
+}
+
